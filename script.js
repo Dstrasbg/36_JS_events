@@ -63,9 +63,23 @@ let eventsOnSecondCard = () =>
 /*Fonct5 :  si un utilisateur double clique sur la navbar en haut,
 tout Bootstrap disparaît et la page s'affiche comme si on avait oublié de mettre le CDN
  qui la relie au fichier CSS. Si possible, rends cette fonctionnalité réversible*/
-
-
-
+let eventsOnNavbar = () =>
+{
+    let navb = document.getElementsByTagName("header")[0];
+    let bootstrapLink = document.getElementsByTagName("link")[0];
+    let onNavbDoubleClick = () =>
+    {
+        if (bootstrapLink.disabled ===false)
+        {
+            bootstrapLink.disabled =true;
+        }
+        else
+        {
+            bootstrapLink.disabled=false;
+        };
+    };
+    navb.addEventListener("dblclick", onNavbDoubleClick);
+}
 
 /*Fonct6 : "View" d'une card (n'importe laquelle), celle-ci va se réduire. 
 Cela veut dire que le texte disparaît, l'image n'apparaîtra qu'à 20 % de sa taille
