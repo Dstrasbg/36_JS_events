@@ -29,7 +29,9 @@ let eventsOnHamburger = () =>
 let eventsOnFirstCard = () =>
 {
     let firstCard = document.getElementsByClassName("card")[0];
+    console.log(`FIRST CARD ${firstCard}`);
     let firstEditButton = firstCard.getElementsByClassName("btn-outline-secondary")[0];
+    console.log(`FIRST CARD ${firstEditButton}`);    
     let onFirstEditButtonClick = () => 
     {
         firstCard.style.color = "red";
@@ -38,11 +40,29 @@ let eventsOnFirstCard = () =>
 }
 
 //Fonct4 : si on clique sur le bouton "Edit" de la deuxième card, le texte de la card va se mettre en vert. Si on re-clique dessus, il redevient comme avant !
+let eventsOnSecondCard = () =>
+{
+    let secondCard = document.getElementsByClassName("card")[1];
+    console.log(`SECOND CARD ${secondCard}`);
+    let secondEditButton = secondCard.getElementsByClassName("btn-outline-secondary")[0];
+    console.log(`SECOND CARD ${secondEditButton}`);   
+    let onSecondEditButtonClick = () => 
+    {        
+        if (secondCard.style.color === 'green')
+        {
+            secondCard.removeAttribute("style");
+        }
+        else
+        {
+            secondCard.style.color = 'green' ;
+        }
+    }
+    secondEditButton.addEventListener("click", onSecondEditButtonClick);
+}
 
-
-
-
-//Fonct5 :  si un utilisateur double clique sur la navbar en haut, tout Bootstrap disparaît et la page s'affiche comme si on avait oublié de mettre le CDN qui la relie au fichier CSS. Si possible, rends cette fonctionnalité réversible
+/*Fonct5 :  si un utilisateur double clique sur la navbar en haut,
+tout Bootstrap disparaît et la page s'affiche comme si on avait oublié de mettre le CDN
+ qui la relie au fichier CSS. Si possible, rends cette fonctionnalité réversible*/
 
 
 
