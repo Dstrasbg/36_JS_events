@@ -85,26 +85,50 @@ let eventsOnNavbar = () =>
 Cela veut dire que le texte disparaît, l'image n'apparaîtra qu'à 20 % de sa taille
 d'origine et les boutons "Edit" / "View" restent visibles. Cette fonction sera réversible : 
 s'il repasse sa souris, la card redevient normale !*/
+let eventsOnAnyCards = () => 
+{
+    let anyOfCards = document.getElementsByClassName("col-md-4").length;
+    for (let i = 0; i < anyOfCards; i ++) 
+    {
+        let miniCard = document.getElementsByClassName("col-md-4")[i];
+        let miniImage = document.querySelectorAll("img.card-img-top")[i];
+        let miniViewButton = miniCard.getElementsByClassName("btn-success")[0];
+        let miniCardText = miniCard.childNodes[1].childNodes[3].childNodes[1];
+        let onMiniViewButtonMouseover = () => 
+        {
+            miniCardText.classList.toggle("collapse");
+            if (miniImage.style.transform === "scale(0.4)")
+            {
+                miniImage.style.removeProperty("transform");
+            }
+            else
+            {
+                miniImage.setAttribute("style", "transform: scale(0.4)");
+            };
+        };
+        miniViewButton.addEventListener("mouseover", onMiniViewButtonMouseover);
+    };
+}
+
+//Fonct7 :  WTF si bouton gris ==>, la dernière card (en bas à droite) va passer en premier (en haut à gauche).!
+let eventsOnForwardButton = () =>
+{
+    let anyOfCards = document.getElementsByClassName("col-md-4").length;
+    let forwardButton = document.querySelectorAll("a.my-2")[1];
+    let onForwardButtonClick = () =>
+    {
+        let firstCard = document.getElementsByClassName("col-md-4")[0];
+        let lastCard = document.getElementsByClassName("col-md-4")[anyOfCards - 1];
+        firstCard.parentNode.insertBefore(lastCard, firstCard);
+    };
+    forwardButton.addEventListener("click", onForwardButtonClick);
+};
+
+//Fonct8 : Tourner les cartes ( PASFAIT)
+//bloquer le lien
 
 
-
-
-//Fonct7 :  WTF si bouton gris ==>, la dernière card (en bas à droite) va passer en premier (en haut à gauche). On va pouvoir faire tourner les cards !
-
-
-
-
-//Fonct8 : Tourner les cartes
-
-
-
-
-//Fonct9 : truct de ouf
-
-
-
-
-//EX: addEventListener("click", function(){};
+//Fonct9 : truct de ouf avec les touches "a", "y", "p" et "b" + logo
 
 
 let perform = () => {
@@ -113,10 +137,10 @@ let perform = () => {
     eventsOnFirstCard();
     eventsOnSecondCard();
     eventsOnNavbar();
-    eventsOnEachCards();
+    eventsOnAnyCards();
     eventsOnForwardButton();
-    eventsOnBackwardButton();
-
+    //eventsOnBackwardButton();
 }
 
 perform();
+//FIN
