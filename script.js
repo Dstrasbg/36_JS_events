@@ -110,7 +110,7 @@ let eventsOnAnyCards = () =>
     };
 }
 
-//Fonct7 :  WTF si bouton gris ==>, la dernière card (en bas à droite) va passer en premier (en haut à gauche).!
+//Fonct7 :  WTF si bouton gris ==>, la dernière card (en bas à droite) va passer en premier (en haut à gauche)!
 let eventsOnForwardButton = () =>
 {
     let anyOfCards = document.getElementsByClassName("col-md-4").length;
@@ -124,14 +124,14 @@ let eventsOnForwardButton = () =>
     forwardButton.addEventListener("click", onForwardButtonClick);
 };
 
-//Fonct8 : Tourner les cartes ( PASFAIT)
-//bloquer le lien
+//Fonct8 : Tourner les cartes ( PAS FAIT)
 
 
-//Fonct9 : truct de ouf avec les touches "a", "y", "p" et "b" + logo
+//Fonct9 : truct de ouf avec les touches "a", "y", "p" et "b" + logo (pas fait)
 
 
-let perform = () => {
+let perform = () =>
+{
     eventsOnFooter();
     eventsOnHamburger();
     eventsOnFirstCard();
@@ -139,7 +139,8 @@ let perform = () => {
     eventsOnNavbar();
     eventsOnAnyCards();
     eventsOnForwardButton();
-    //eventsOnBackwardButton();
+    //eventsOn...();
+    //eventsOn...();
 }
 
 perform();
