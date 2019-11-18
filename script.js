@@ -1,5 +1,4 @@
 //Fonct1 et 1bis : affficher " CLIQUE" ET "click numéro X" en console quand l'utilisateur clique su footer
-
 let eventsOnFooter = () => 
 {
     let pageFooter = document.getElementsByTagName("footer")[0];
@@ -14,13 +13,11 @@ let eventsOnFooter = () =>
     pageFooter.addEventListener("click", onFooterClick);
 }
 
-
 //Fonct2 : "Hamburger Menu"
-
 let eventsOnHamburger = () => 
 {
     let hamburger = document.getElementsByClassName("navbar-toggler")[0];
-    let navHeader = document.getElementsById("navbarHeader");
+    let navHeader = document.getElementById("navbarHeader");
     let onHamburgerClick = () => 
     {
         navHeader.classList.toggle("collapse");       
@@ -29,9 +26,16 @@ let eventsOnHamburger = () =>
 }
 
 //Fonct3 : Si on clique sur le bouton "Edit" de la première card, le texte de la card va se mettre en rouge de façon irréversible (sauf si on recharge la page)
-
-
-
+let eventsOnFirstCard = () =>
+{
+    let firstCard = document.getElementsByClassName("card")[0];
+    let firstEditButton = firstCard.getElementsByClassName("btn-outline-secondary")[0];
+    let onFirstEditButtonClick = () => 
+    {
+        firstCard.style.color = "red";
+    };
+    firstEditButton.addEventListener("click", onFirstEditButtonClick);
+}
 
 //Fonct4 : si on clique sur le bouton "Edit" de la deuxième card, le texte de la card va se mettre en vert. Si on re-clique dessus, il redevient comme avant !
 
